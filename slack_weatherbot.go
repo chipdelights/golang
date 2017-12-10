@@ -40,7 +40,8 @@ func getWeather(region string) string{
 }   
 
 func main() {
-    api := slack.New("xoxb-285389903031-n6mK0oqW03DvXsoc4Red8ZJd")
+    token := os.Getenv("SLACK_TOKEN")
+    api := slack.New(token)
     logger := log.New(os.Stdout,"weather-bot: ",log.Lshortfile|log.LstdFlags)
     slack.SetLogger(logger)
     //api.SetDebug(true)   
